@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MisApuntes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="phone">
+
+    <!-- Control del menú -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+    <!-- Control del panel de configuración -->
+    <input type="checkbox" id="settings-toggle" class="settings-toggle" />
+
+    <header class="topbar">
+      <label for="menu-toggle" class="icon-btn" aria-label="Abrir menú">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </label>
+
+      <h1 class="title">MisApuntes</h1>
+
+      <label for="settings-toggle" class="icon-btn settings-button" aria-label="Abrir ajustes" title="Ajustes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82V22a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 20a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33H2a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4 9a1.65 1.65 0 0 0 .33-1.82l-.06-.06A2 2 0 0 1 7.1 4.29l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6A1.65 1.65 0 0 0 10.33 2.18V2a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4a1.65 1.65 0 0 0 1.82.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 .6 1 1.65 1.65 0 0 0 1.82.33H22a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 20 15a1.65 1.65 0 0 0-.6 0z"></path>
+        </svg>
+      </label>
+    </header>
+
+    <!-- Fondo oscuro al abrir menú -->
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <!-- Fondo oscuro al abrir ajustes -->
+    <label for="settings-toggle" class="settings-overlay"></label>
+
+    <!-- Panel de configuración -->
+    <aside class="settings-panel">
+      <div class="settings-header">
+        <div>
+          <h2>Configuración</h2>
+          <p>Personaliza MisApuntes</p>
+        </div>
+
+        <label for="settings-toggle" class="settings-close" aria-label="Cerrar ajustes">
+          ×
+        </label>
+      </div>
+
+      <div class="settings-profile">
+        <div class="settings-avatar">M</div>
+        <div>
+          <h3>Mi cuenta</h3>
+          <p>Estudiante</p>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <div>
+          <h3>Modo oscuro</h3>
+          <p>Cambia el fondo de la aplicación.</p>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" id="dark-mode" />
+          <span></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div>
+          <h3>Vista compacta</h3>
+          <p>Reduce espacios entre tarjetas.</p>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" id="compact-mode" />
+          <span></span>
+        </label>
+      </div>
+
+      <div class="setting-block">
+        <h3>Tamaño de letra</h3>
+        <select id="font-size" class="settings-select">
+          <option value="normal">Normal</option>
+          <option value="large">Grande</option>
+        </select>
+      </div>
+
+      <div class="setting-block">
+        <h3>Color principal</h3>
+        <div class="color-options">
+          <button class="color-dot blue-dot active-color" data-color="blue" aria-label="Color azul"></button>
+          <button class="color-dot purple-dot" data-color="purple" aria-label="Color morado"></button>
+          <button class="color-dot green-dot" data-color="green" aria-label="Color verde"></button>
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button class="save-settings" id="save-settings">Guardar</button>
+        <button class="reset-settings" id="reset-settings">Restablecer</button>
+      </div>
+    </aside>
+
+    <!-- Menú desplegable lateral -->
+    <aside class="side-menu">
+      <div class="side-header">
+        <h2>Materias</h2>
+
+        <label for="menu-toggle" class="close-menu" aria-label="Cerrar menú">
+          ×
+        </label>
+      </div>
+
+      <div class="user-box">
+        <div class="user-avatar">M</div>
+        <div>
+          <h3>Mis carpetas</h3>
+          <p>Organiza tus apuntes</p>
+        </div>
+      </div>
+
+      <nav class="menu-list">
+        <a href="#" class="menu-item active">
+          <span class="menu-icon">📚</span>
+          Todas las materias
+        </a>
+
+        <a href="crearclase.html" class="menu-item">
+          <span class="menu-icon">➕</span>
+          Crear nueva materia
+        </a>
+
+        <a href="contenidomateria.html" class="menu-item">
+          <span class="menu-icon">📐</span>
+          Matemáticas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">⚛️</span>
+          Física
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🧪</span>
+          Química
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🧬</span>
+          Biología
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🌎</span>
+          Historia
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">💻</span>
+          Programación
+        </a>
+      </nav>
+
+      <div class="side-footer">
+        <button class="logout-btn">Cerrar menú</button>
+      </div>
+    </aside>
+
+    <section class="content">
+      <a href="crearclase.html">
+        <button class="main-action blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
+        </svg>
+        Nueva clase
+      </button>
+      </a>
+      
+      <a href="registarclase.html"> 
+          <button class="main-action red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <path d="M12 19v4"></path>
+          <path d="M8 23h8"></path>
+        </svg>
+        Grabar clase
+      </button>
+      </a>
+      
+
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+        <span>Últimos apuntes</span>
+      </div>
+
+      <article class="note-card">
+        <div class="file-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 2v6h6"></path>
+            <path d="M8 13h8"></path>
+            <path d="M8 17h6"></path>
+          </svg>
+        </div>
+
+        <div class="note-info">
+          <h3>Cálculo diferencial - Límites</h3>
+          <p class="meta">Matemáticas • 29 Abril 2026</p>
+          <p class="description">Introducción a los límites y continuidad de funciones...</p>
+        </div>
+      </article>
+
+      <article class="note-card">
+        <div class="file-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 2v6h6"></path>
+            <path d="M8 13h8"></path>
+            <path d="M8 17h6"></path>
+          </svg>
+        </div>
+
+        <div class="note-info">
+          <h3>Movimiento rectilíneo uniforme</h3>
+          <p class="meta">Física • 28 Abril 2026</p>
+          <p class="description">Estudio del MRU y sus ecuaciones principales...</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const phone = document.querySelector('.phone');
+    const settingsToggle = document.getElementById('settings-toggle');
+    const darkMode = document.getElementById('dark-mode');
+    const compactMode = document.getElementById('compact-mode');
+    const fontSize = document.getElementById('font-size');
+    const colorButtons = document.querySelectorAll('.color-dot');
+    const saveSettings = document.getElementById('save-settings');
+    const resetSettings = document.getElementById('reset-settings');
+
+    darkMode.addEventListener('change', () => {
+      phone.classList.toggle('dark-mode', darkMode.checked);
+    });
+
+    compactMode.addEventListener('change', () => {
+      phone.classList.toggle('compact-mode', compactMode.checked);
+    });
+
+    fontSize.addEventListener('change', () => {
+      phone.classList.toggle('large-font', fontSize.value === 'large');
+    });
+
+    colorButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        colorButtons.forEach((btn) => btn.classList.remove('active-color'));
+        button.classList.add('active-color');
+
+        phone.classList.remove('theme-blue', 'theme-purple', 'theme-green');
+        phone.classList.add(`theme-${button.dataset.color}`);
+      });
+    });
+
+    saveSettings.addEventListener('click', () => {
+      settingsToggle.checked = false;
+    });
+
+    resetSettings.addEventListener('click', () => {
+      darkMode.checked = false;
+      compactMode.checked = false;
+      fontSize.value = 'normal';
+
+      phone.classList.remove('dark-mode', 'compact-mode', 'large-font', 'theme-purple', 'theme-green');
+      phone.classList.add('theme-blue');
+
+      colorButtons.forEach((btn) => btn.classList.remove('active-color'));
+      document.querySelector('.blue-dot').classList.add('active-color');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MisApuntes - Crear nueva clase</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #e9edf3;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 18px 0;
+      color: #1f2937;
+    }
+
+    .phone {
+      width: 390px;
+      min-height: 760px;
+      background: #f7f8fc;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .topbar {
+      height: 68px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: none;
+      background: #f1f5f9;
+      color: #1f2937;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .topbar h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .content {
+      padding: 22px 20px 28px;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      margin-bottom: 20px;
+    }
+
+    .intro-card h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .intro-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px 15px;
+      font-size: 14px;
+      color: #111827;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: none;
+      line-height: 1.4;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #4f46e5;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .actions-section {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .action-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 16px 8px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .action-icon {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      border-radius: 14px;
+      background: #eef2ff;
+      color: #4f46e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+    }
+
+    .action-card span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #374151;
+      display: block;
+      line-height: 1.3;
+    }
+
+    .bottom-area {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+    }
+
+    .main-btn {
+      width: 100%;
+      border: none;
+      background: #4f46e5;
+      color: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+    }
+
+    .helper-text {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 0;
+        background: #f7f8fc;
+      }
+
+      .phone {
+        width: 100%;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="phone">
+
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Volver">←</button>
+      <h1>Crear nueva Materia </h1>
+      <button class="icon-btn" aria-label="Ayuda">?</button>
+    </header>
+
+    <section class="content">
+
+      <div class="intro-card">
+        <h2>Crea una  nueva materia </h2>
+        <p>Agrega la información básica antes de comenzar a tomar apuntes.</p>
+      </div>
+
+      <form class="form-card">
+
+        <div class="field">
+          <label for="tema">Nombre de materia </label>
+          <input 
+            type="text" 
+            id="tema" 
+            placeholder="Ej: Introducción a límites"
+          />
+        </div>
+
+        <div class="field">
+          <label for="fecha">Horario de la materia </label>
+          <input 
+            type="date" 
+            id="fecha"
+          />
+        </div>
+
+
+
+        <div class="field">
+          <label for="descripcion">Descripción corta</label>
+          <textarea 
+            id="descripcion" 
+            placeholder="Escribe una breve descripción de la clase..."
+          ></textarea>
+        </div>
+
+      </form>
+
+      <section class="actions-section">
+        <h3 class="section-title">Opciones iniciales del apunte</h3>
+
+        <div class="actions-grid">
+
+          <div class="action-card">
+            <div class="action-icon">🎙️</div>
+            <span>Grabar audio</span>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">📷</div>
+            <span>Tomar foto</span>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">✍️</div>
+            <span>Escribir nota</span>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="bottom-area">
+        <button class="main-btn">Crear Clase </button>
+        <p class="helper-text">
+          Podrás agregar audio, imágenes y notas durante la clase.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

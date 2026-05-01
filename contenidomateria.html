@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MisApuntes - Detalle de materia</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #e9edf3;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px 0;
+      color: #1f2937;
+    }
+
+    .phone {
+      width: 390px;
+      min-height: 780px;
+      background: #f8fafc;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.18);
+    }
+
+    .topbar {
+      height: 68px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 14px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topbar h1 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .content {
+      padding: 20px 18px 95px;
+    }
+
+    .subject-card {
+      background: linear-gradient(135deg, #ffffff, #eef5ff);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      margin-bottom: 18px;
+      border: 1px solid #e5edf7;
+    }
+
+    .subject-card h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .subject-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    .counter {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .search-box {
+      height: 52px;
+      background: #ffffff;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+    }
+
+    .search-box span {
+      font-size: 19px;
+      color: #64748b;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      font-size: 14px;
+      color: #1f2937;
+    }
+
+    .search-box input::placeholder {
+      color: #94a3b8;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .class-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .class-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 17px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.07);
+      border: 1px solid #eef2f7;
+    }
+
+    .class-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .class-header h3 {
+      font-size: 16px;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 6px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .description {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 13px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .tag.audio {
+      background: #ecfeff;
+      color: #0e7490;
+    }
+
+    .tag.image {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .tag.summary {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
+
+    .tag.notes {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .fab {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      height: 58px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 999px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+      cursor: pointer;
+    }
+
+    .fab span {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .bottom-space {
+      height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="phone">
+
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Volver">‹</button>
+      <h1>Matemáticas</h1>
+      <button class="icon-btn" aria-label="Opciones">⋮</button>
+    </header>
+
+    <section class="content">
+
+      <div class="subject-card">
+        <h2>Matemáticas</h2>
+        <p>Clases guardadas, apuntes, audios e imágenes organizadas.</p>
+        <span class="counter">8 clases guardadas</span>
+      </div>
+
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" placeholder="Buscar clase, tema o palabra clave…" />
+      </div>
+
+      <h2 class="section-title">Clases guardadas</h2>
+
+      <div class="class-list">
+
+        <article class="class-card">
+          <div class="class-header">
+            <h3>Introducción a límites</h3>
+            <span class="date">12/05/2026</span>
+          </div>
+          <p class="description">
+            Apuntes sobre concepto de límite y ejemplos iniciales.
+          </p>
+          <div class="tags">
+            <span class="tag audio">🎙 Audio</span>
+            <span class="tag image">🖼 Imagen</span>
+            <span class="tag summary">📄 Resumen</span>
+          </div>
+        </article>
+
+        <article class="class-card">
+          <div class="class-header">
+            <h3>Derivadas básicas</h3>
+            <span class="date">14/05/2026</span>
+          </div>
+          <p class="description">
+            Reglas básicas de derivación y ejercicios.
+          </p>
+          <div class="tags">
+            <span class="tag notes">📝 Notas</span>
+            <span class="tag audio">🎙 Audio</span>
+          </div>
+        </article>
+
+        <article class="class-card">
+          <div class="class-header">
+            <h3>Aplicaciones de la derivada</h3>
+            <span class="date">18/05/2026</span>
+          </div>
+          <p class="description">
+            Máximos, mínimos y problemas de optimización.
+          </p>
+          <div class="tags">
+            <span class="tag image">🖼 Imagen</span>
+            <span class="tag summary">📄 Resumen</span>
+          </div>
+        </article>
+
+        <article class="class-card">
+          <div class="class-header">
+            <h3>Ejercicios de repaso</h3>
+            <span class="date">20/05/2026</span>
+          </div>
+          <p class="description">
+            Problemas resueltos para preparar la evaluación.
+          </p>
+          <div class="tags">
+            <span class="tag notes">📝 Notas</span>
+            <span class="tag summary">📄 Resumen</span>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <button class="fab">
+      <span>+</span>
+      Nueva clase
+    </button>
+
+  </main>
+
+</body>
+</html>
